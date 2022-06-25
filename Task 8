@@ -1,0 +1,39 @@
+// var obj={num:2};
+
+// var addToThis=function(a){
+//     return this.num+a;
+// };
+// console.log(addToThis.call(obj,3));
+
+// var arr = [3];
+
+// console.log(addToThis.apply(obj,arr))
+
+// var bound = addToThis.bind(obj)
+
+// console.log(bound(4))
+
+// const student = {
+//     age: 20
+// }
+
+// function printAge() {
+
+//     console.log(this.age);
+// }
+
+// var age = printAge.bind(student);
+
+// age();
+
+let multiply = function(x){
+    return function(y){
+      console.log(x*y);
+    }
+}
+
+let multiplyByTwo = multiply(2);
+multiplyByTwo(3);
+  
+let multiplyByThree = multiply(3);
+multiplyByThree(10);
