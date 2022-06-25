@@ -1,0 +1,138 @@
+// this keyword
+/*
+1. this as an object
+2. this inside a method
+3. this inside a funcion
+4. this inside a constructor
+5. this inside a class
+*/
+
+// --------------------------------------------------------------------------------------------------------------------
+
+// Examples of this keyword
+
+// // 1. this as an object
+// let johnsRoom = {
+
+//     table: 'johns table',
+//     cleanTable() {
+//         console.log(`cleaning ${this.table}`)
+//     }
+// }
+
+// console.log(johnsRoom.table)
+
+// // this inside a method
+
+// johnsRoom.cleanTable();
+
+// // 3. this inside a funcion
+
+// const cleanTable = function() {
+
+//     console.log(`cleaning ${this.table}`)
+// }
+
+// cleanTable.call(this);
+
+// // 4. this inside a constructor
+
+// let createRoom = function(name) {
+
+//     this.table = `cleaning ${name}s room using soap`
+//     console.log(this.table)
+// }
+
+// const jillsRoom = new createRoom('jill')
+// const johnsRooms = new createRoom(`john`)
+
+// // 5. this inside a class
+
+// class createRoomClass {
+
+//     constructor(name) {
+//         this.table = `cleaning ${name}s room using soap`
+//         console.log(this.table)
+//     }
+// }
+
+// const jillsRoomClass = new createRoomClass('jill')
+// const johnsRoomsClass = new createRoomClass(`john`)
+
+// ---------------------------------------------------------------------------------------------------------------------------
+
+class Student {
+
+    static totalStudents = 0;
+    // minBoardMarks = 45;
+    // minAge = 21;
+
+    constructor(name, age, phoneNo, marks) {
+
+        this.name = name;
+        this.age = age;
+        this.phoneNo = phoneNo;
+        this.marks = marks;
+        Student.totalStudents++;
+    }
+
+    eligible() {
+
+        if(this.marks > 40) {
+
+            console.log(`${this.name} is eligible for college `);
+        }
+
+        else {
+
+            console.log(`${this.name} is not eligible for college `);
+        }
+    }
+
+    eligibleForPlacements(minBoardMarks) {
+
+        return (minAge) => (this.marks > minBoardMarks && this.age>= minAge) ? true : false
+    }
+}
+
+const student1 = new Student(`abc`, 21, 123456789, 100);
+const student2 = new Student(`def`, 22, 132546345, 90);
+const student3 = new Student(`ghi`, 23, 345756734, 80);
+const student4 = new Student(`jkl`, 24, 324676543, 30);
+const student5 = new Student(`mno`, 25, 658763245, 50);
+
+if(student1.eligibleForPlacements(45)(23)) {
+
+    console.log(student1.name)
+}
+
+if(student2.eligibleForPlacements(45)(23)) {
+
+    console.log(student2.name)
+}
+
+if(student3.eligibleForPlacements(45)(23)) {
+
+    console.log(student3.name)
+}
+
+if(student4.eligibleForPlacements(45)(23)) {
+
+    console.log(student4.name)
+}
+
+if(student5.eligibleForPlacements(45)(23)) {
+
+    console.log(student5.name)
+}
+
+// console.log(Student.totalStudents)
+
+// ----------------------------------------------------------------------------------------------------------------------------
+
+// let mult = (a,b) => a*b;
+
+// console.log(mult(3,4))
+
+// ----------------------------------------------------------------------------------------------------------------------------
+
